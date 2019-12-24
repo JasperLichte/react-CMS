@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useMdFile = (path: string) => {
+const useMdFile = (path: string): string => {
     const [text, setText] = useState('');
 
     useEffect(() => {
