@@ -4,7 +4,7 @@ const useMdFile = (path: string): string => {
     const [text, setText] = useState('');
 
     useEffect(() => {
-      fetch(path)
+      fetch(`${path}?v=${Math.floor(Math.random() * 1000)}`)
       .then((r) => r.text())
       .then(setText)
       .catch(_ => setText(''))

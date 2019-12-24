@@ -1,16 +1,14 @@
 import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import useMdFile from '../hooks/useMdFile';
-import ClientConfig from '../models/ClientConfig';
-import ServerConfig from '../models/ServerConfig';
+import Config from '../models/Config';
 
 interface BlogProps {
-  clientConfig: ClientConfig,
-  serverConfig: ServerConfig,
+  config: Config,
 }
 
-const Blog = ({clientConfig, serverConfig}: BlogProps) => {
-  const md = useMdFile(`${clientConfig.server.base_path}data/test.md`);
+const Blog = ({config}: BlogProps) => {
+  const md = useMdFile(`${config.markdownFilesRoot()}test.md`);
 
   return (<Markdown>{md}</Markdown>);
 }

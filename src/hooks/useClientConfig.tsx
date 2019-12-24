@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import Config from '../models/ClientConfig';
+import ClientConfig from '../models/ClientConfig';
 import useJsonFile from './useJsonFile';
 
-const useClientConfig = (): Config|null => {
+const useClientConfig = (): ClientConfig|null => {
     const configJson = useJsonFile('config.json');
-    const [config, setConfig] = useState<Config|null>(null);
+    const [config, setConfig] = useState<ClientConfig|null>(null);
   
     if (configJson && !config) {
-      setConfig(new Config().deserialize(configJson));
+      setConfig(new ClientConfig().deserialize(configJson));
     }
 
     return config;
