@@ -1,7 +1,7 @@
-import Serializable from "./Serializable";
+import Serializable from "../Serializable";
 
 export default class ClientConfig implements Serializable<ClientConfig> {
-    server: Server;
+    server: Server = new Server();
 
     deserialize(input: {}) {
         // @ts-ignore

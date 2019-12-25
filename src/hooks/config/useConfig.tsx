@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Config from '../models/Config';
-import ClientConfig from '../models/ClientConfig';
-import ServerConfig from '../models/ServerConfig';
+import Config from '../../models/config/Config';
+import ClientConfig from '../../models/config/ClientConfig';
+import ServerConfig from '../../models/config/ServerConfig';
 import useClientConfig from './useClientConfig';
 import useServerConfig from './useServerConfig';
 

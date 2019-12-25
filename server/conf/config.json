@@ -1,3 +1,6 @@
 {
-    "markdown_files_root": "data/"
+    "markdown_files_root": "data/",
+    "articles": {
+        "20191225": "blog/entries/20191225.md"
+    }
 }

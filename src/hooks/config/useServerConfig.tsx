@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import useJsonFile from './useJsonFile';
-import ServerConfig from '../models/ServerConfig';
+import useJsonFile from '../useJsonFile';
+import ServerConfig from '../../models/config/ServerConfig';
 
 const useServerConfig = (filePath: string): ServerConfig|null => {
   const [config, setConfig] = useState<ServerConfig|null>(null);
