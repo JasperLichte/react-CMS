@@ -2,4 +2,14 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    --accent-color: cornflowerblue;
+    --accent-font-color: #fff;
+}
+
+a:any-link,
+a:visited,
+a:link,
+a:active {
+    color: currentColor;
 }
