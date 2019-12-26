@@ -1,0 +1,29 @@
+ul, ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+
+    & ul, ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+ul {
+    margin-left: 8px;
+    list-style: none;
+
+    & li {
+        position: relative;
+        padding-left: 8px;
+        &::before {
+            position: absolute;
+            left: -8px;
+            content: '*';
+        }
+    }
+}
+
+ol {
+    margin-left: 16px;
+}

@@ -1,0 +1,25 @@
+.content > div {
+    @import './styles/headings.scss';
+    @import './styles/lists.scss';
+    @import './styles/links.scss';
+    @import './styles/code.scss';
+    @import './styles/quote.scss';
+    @import './styles/image.scss';
+    @import './styles/horizontal_rule.scss';
+
+    @import url(https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap);
+    color: #333;
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+
+    & * {
+        margin: 0;
+        padding: 0;
+    }
+
+    & > * {
+        text-align: justify;
+    }
+}

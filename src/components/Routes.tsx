@@ -1,6 +1,6 @@
 import React from 'react';
 import Blog from './blog/Blog';
-import BlogEntry from './blog/BlogEntry';
+import BlogEntry from './blog/entry/BlogEntry';
 import {
   BrowserRouter as Router,
   Switch,
