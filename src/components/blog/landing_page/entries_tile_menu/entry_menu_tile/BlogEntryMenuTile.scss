@@ -1,0 +1,40 @@
+.blog-entry-menu-tile,
+.blog-entry-menu-tile:visited,
+.blog-entry-menu-tile:active,
+.blog-entry-menu-tile:link {
+    padding: 1rem;
+    width: 50%;
+    min-width: 300px;
+    flex-grow: 1;
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: #444;
+    margin: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 200ms ease;
+
+    &:hover {
+        transform: scale(1.0175);
+        box-shadow: 0 0 10px solid black;
+    }
+
+    @media screen and (min-width: 700px) {
+        width: calc(100% / 3);
+        font-size: 1.5rem;
+    }
+
+    @media screen and (min-width: 1100px) {
+        width: calc(100% / 4);
+    }
+
+    @media screen and (min-width: 1400px) {
+        width: calc(100% / 5);
+    }
+
+    @media screen and (min-width: 1700px) {
+        width: calc(100% / 6);
+    }
+}

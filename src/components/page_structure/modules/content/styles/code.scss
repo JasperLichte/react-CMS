@@ -15,4 +15,10 @@ pre {
         padding: 0;
         background-color: transparent;
     }
+
+    @media screen and (max-width: 700px) {
+        max-width: 100vw;
+        width: 100vw;
+        margin-left: -1rem;
+    }
 }

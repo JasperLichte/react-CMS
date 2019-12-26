@@ -1,6 +1,6 @@
 import React from 'react';
-import Blog from './blog/Blog';
 import BlogEntry from './blog/entry/BlogEntry';
+import BlogLandingPage from './blog/landing_page/BlogLandingPage';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,10 +14,10 @@ const Routes: React.FC = () => (
       <BlogEntry />
     </Route>
     <Route path="/blog">
-      <Blog />
+      <BlogLandingPage />
     </Route>
     <Route path="/">
-      <Blog />
+      <BlogLandingPage />
     </Route>
   </Switch>
 </Router>);

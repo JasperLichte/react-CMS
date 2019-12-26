@@ -16,7 +16,7 @@ const BlogEntry = () => {
   return (
     <PageStructure>
       {md
-        ? <Markdown>{md}</Markdown> 
+        ? <Markdown className="markdown">{md}</Markdown> 
         : (path
           ? <p>loading...</p>
           : <p>404</p>)}
