@@ -1,0 +1,10 @@
+.header {
+    background-color: var(--accent-color);
+    color: var(--accent-font-color);
+    padding: 1rem;
+
+    & .content-wrapper {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}

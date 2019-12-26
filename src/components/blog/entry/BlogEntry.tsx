@@ -10,11 +10,16 @@ import PageStructure from '../../page_structure/PageStructure';
 const BlogEntry = () => {
   const config: Config = useSelector(configSelector);
   const { date } = useParams();
-  const md = useMdFile(config.articlePath(date || ''));
+  const path = config.articlePath(date || '');
+  const md = useMdFile(path);
 
   return (
     <PageStructure>
-      {md ? <Markdown>{md}</Markdown> : <p>404</p>}
+      {md
+        ? <Markdown>{md}</Markdown> 
+        : (path
+          ? <p>loading...</p>
+          : <p>404</p>)}
     </PageStructure>
   );
 }

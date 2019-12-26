@@ -17,6 +17,7 @@ const Routes: React.FC = () => (
       <Blog />
     </Route>
     <Route path="/">
+      <Blog />
     </Route>
   </Switch>
 </Router>);

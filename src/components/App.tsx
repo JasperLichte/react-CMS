@@ -5,6 +5,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from '../reducers/reducer'
 import ActionType from '../actions/ActionType';
+import './App.scss';
 
 const store = createStore(reducer)
 
