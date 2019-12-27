@@ -7,12 +7,19 @@ interface BlogPostMenuTileProp {
   post: BlogPost,
 }
 
-const BlogPostMenuTile = ({post}: BlogPostMenuTileProp) => (
-  <Link
-    className="blog-post-menu-tile"
-    style={{backgroundColor: randomColor(180)}}
-    to={`/blog/${post.getId()}`}>
-  {post.getTitle()}</Link>);
+const BlogPostMenuTile = ({post}: BlogPostMenuTileProp) => {
+  const creationDate = post.getCreationDate();
+
+  return (
+    <Link
+      className="blog-post-menu-tile"
+      style={{backgroundColor: randomColor(180)}}
+      to={`/blog/${post.getId()}`}
+    >
+      <h3>{post.getTitle()}</h3>
+      <p>{creationDate ? creationDate.toLocaleDateString() : ''}</p>
+    </Link>);
+}
 
 export default BlogPostMenuTile;
 
