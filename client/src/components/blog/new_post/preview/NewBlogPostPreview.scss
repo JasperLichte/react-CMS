@@ -1,0 +1,9 @@
+.new-blog-post-preview {
+    flex-grow: 1;
+    overflow-y: auto;
+    min-width: 400px;
+
+    @media screen and (max-width: 800px) {
+        display: none;
+    }
+}

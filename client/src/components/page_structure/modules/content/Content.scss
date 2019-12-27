@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 
-.content > .markdown {
+.content .markdown {
     @import './styles/headings.scss';
     @import './styles/lists.scss';
     @import './styles/links.scss';
@@ -21,11 +21,7 @@
     max-width: 700px;
     margin: 0 auto;
     padding: 1rem;
-
-    & * {
-        margin: 0;
-        padding: 0;
-    }
+    width: 100%;
 
     & > * {
         text-align: center;

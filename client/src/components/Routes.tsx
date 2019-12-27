@@ -6,10 +6,14 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import NewPost from './blog/new_post/NewPost';
 
 const Routes: React.FC = () => (
 <Router>
   <Switch>
+    <Route path="/blog/new">
+      <NewPost />
+    </Route>
     <Route path="/blog/:id">
       <BlogPost />
     </Route>
