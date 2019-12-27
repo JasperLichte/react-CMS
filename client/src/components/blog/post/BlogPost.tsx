@@ -3,6 +3,8 @@ import Markdown from 'markdown-to-jsx';
 import { useParams } from 'react-router-dom';
 import PageStructure from '../../page_structure/PageStructure';
 import useBlogPost from '../../../hooks/blog/useBlogPost';
+import Err404 from '../../placeholder/errors/404/Err404';
+import LoadingSpinner from '../../placeholder/LoadingSpinner';
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -12,9 +14,9 @@ const BlogPost = () => {
     <PageStructure>
       {
         loading
-          ? <p>loading...</p>
+          ? <LoadingSpinner />
           : post === null
-            ? <p>error</p>
+            ? <Err404 />
             : <Markdown className="markdown">{post.getContent()}</Markdown>
       }
     </PageStructure>

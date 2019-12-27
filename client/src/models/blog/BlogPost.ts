@@ -11,6 +11,11 @@ export default class BlogPost implements Serializable<BlogPost> {
     public getContent = () => this.content;
     public getCreationDate = () => this.creationDate;
 
+    public isEmpty = () => (
+        !this.id
+        || !this.title.length
+        || !this.content.length)
+
     public deserialize(input = {}): BlogPost {
         // @ts-ignore
         this.id = input.id || this.id;

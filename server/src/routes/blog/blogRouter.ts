@@ -21,6 +21,11 @@ blogRouter.get('/:id', async (req: Request, res: Response) => {
         WHERE id = ${db.escape(req.params.id)}
     `));
 
+    if (post.isEmpty()) {
+        res.status(404).send(null);
+        return;
+    }
+
     res.send(post);
 });
 
