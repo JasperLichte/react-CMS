@@ -1,0 +1,28 @@
+{
+  "name": "react_cms",
+  "version": "1.0.0",
+  "description": "Content management system for a simple blog written in react and express",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "deploy": "node ./lib/deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasperLichte/react_cms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasperLichte/react_cms/issues"
+  },
+  "homepage": "https://github.com/JasperLichte/react_cms#readme",
+  "devDependencies": {
+    "fs-extra": "^8.1.0"
+  },
+  "dependencies": {
+    "core-util-is": "^1.0.2"
+  }
+}

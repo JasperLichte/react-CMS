@@ -1,5 +1,5 @@
 import mysql from 'mysql';
-import credentials from 'src/config/credentials';
+import credentials from '../config/credentials';
 
 export default class Connection {
 
