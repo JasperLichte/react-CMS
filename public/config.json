@@ -1,6 +1,0 @@
-{
-    "server": {
-        "base_path": "http://localhost/Projects/github/react_cms/server/",
-        "config_location": "conf/config.json"
-    }
-}
