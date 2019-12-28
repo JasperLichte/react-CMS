@@ -15,7 +15,7 @@ const GithubUser: React.FC<any> = ({name}) => {
                     <p className="company">{user.getCompany()}</p>
                     <p className="location">{user.getLocation()}</p>
                     <p><a className="blog" href={user.getBlog()}>{user.getBlog()}</a></p>
-                    <img className="avatar" src={user.getAvatarUrl()} />
+                    <img alt={user.getAvatarUrl()} className="avatar" src={user.getAvatarUrl()} />
                 </>}
         </div>
     )
