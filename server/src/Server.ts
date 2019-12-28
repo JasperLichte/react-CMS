@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 });
 app.use('/', router);
 app.use((_, __, next) => {
-  Connection.getInstance().close();
+  Connection.getInstance().end();
   next();
 });
 app.get('*', (req: Request, res: Response) => {

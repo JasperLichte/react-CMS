@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PageStructure from '../../page_structure/PageStructure';
 import useBlogPost from '../../../hooks/blog/useBlogPost';
@@ -9,6 +9,12 @@ import MarkDownToJsx from '../../markdown/MarkDownToJsx';
 const BlogPost = () => {
   const { id } = useParams();
   const [ loading, post ] = useBlogPost(parseInt(id || ''));
+
+  useEffect(() => {
+    if (post) {
+      document.title = post.getTitle();
+    }
+  }, [post]);
 
   return (
     <PageStructure>

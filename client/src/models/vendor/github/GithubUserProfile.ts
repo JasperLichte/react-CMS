@@ -4,6 +4,7 @@ export default class GithubUserProfile implements Serializable<GithubUserProfile
     private id: number = 0;
 
     private name: string = '';
+    private login: string = '';
     private company: string = '';
     private blog: string = '';
     private location: string = '';
@@ -17,6 +18,7 @@ export default class GithubUserProfile implements Serializable<GithubUserProfile
 
     public getId = () => this.id;
     public getName = () => this.name;
+    public getLogin = () => this.login;
     public getCompany = () => this.company;
     public getBlog = () => this.blog;
     public getLocation = () => this.location;
@@ -32,6 +34,8 @@ export default class GithubUserProfile implements Serializable<GithubUserProfile
 
         // @ts-ignore
         this.name = input.name || this.name;
+        // @ts-ignore
+        this.login = input.login || this.login;
         // @ts-ignore
         this.company = input.company || this.company;
         // @ts-ignore

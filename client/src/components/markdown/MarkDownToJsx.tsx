@@ -8,13 +8,14 @@ interface Props {
 
 
 const MarkDownToJsx = ({md}: Props) => (
+<div className="markdown">
     <Markdown
-        className="markdown"
         options={{
             overrides: {
                 'github-user': GithubUser,
             }
         }}
-    >{md}</Markdown>)
+    >{md}</Markdown>
+</div>)
 
 export default MarkDownToJsx

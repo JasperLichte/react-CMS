@@ -6,10 +6,17 @@ const blogRouter = express.Router();
 const db = Connection.getInstance();
 
 blogRouter.get('/all-posts', async (req: Request, res: Response) => {
-    const posts = (await db.query(`
+    const dbRes = (await db.query(`
         SELECT id, title, content, creation_date AS creationDate
         FROM blog_posts
-    `)).map((p: {}) => (new BlogPost()).deserialize(p));
+    `));
+
+    let posts: BlogPost[] = [];
+    if (Array.isArray(dbRes)) {
+        posts  = dbRes.map((p: {}) => (new BlogPost()).deserialize(p));
+    } else {
+        posts = [(new BlogPost()).deserialize(dbRes)];
+    }
 
     res.send(posts);
 });

@@ -23,7 +23,7 @@ export default class Connection {
         });
     }
 
-    public close() {
+    public end() {
         this.db.end();
     }
 

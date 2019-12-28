@@ -2,9 +2,28 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    overflow-x: hidden;
 }
 
 .content .markdown {
+    @import url(https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap);
+    color: #333;
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.1rem;
+    width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+
+    & > div > * {
+        text-align: center;
+
+        @media screen and (max-width: 700px) {
+            text-align: left;
+        }
+    }
+    
     @import './styles/headings.scss';
     @import './styles/lists.scss';
     @import './styles/links.scss';
@@ -13,21 +32,4 @@
     @import './styles/image.scss';
     @import './styles/horizontal_rule.scss';
     @import './styles/table.scss';
-
-    @import url(https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap);
-    color: #333;
-    font-family: 'Zilla Slab', serif;
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 1rem;
-    width: 100%;
-
-    & > * {
-        text-align: center;
-
-        @media screen and (max-width: 700px) {
-            text-align: left;
-        }
-    }
 }
