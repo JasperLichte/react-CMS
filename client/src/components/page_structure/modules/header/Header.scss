@@ -1,10 +1,35 @@
 .header {
-    background-color: var(--accent-color);
-    color: var(--accent-font-color);
+    color: #222;
     padding: 1rem;
+
+    border-bottom: 1px solid currentColor;
 
     & .content-wrapper {
         max-width: 700px;
         margin: 0 auto;
+    }
+
+    .menu-open-btn {
+        height: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: none;
+        outline: 0 none;
+        background: transparent;
+        cursor: pointer;
+        opacity: 1;
+        transition: opacity .6s ease;
+
+        &:disabled {
+            opacity: 0;
+        }
+
+        span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: #222;
+        }
     }
 }

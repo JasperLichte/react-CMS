@@ -5,4 +5,7 @@ export default Object.freeze({
         password: 'XXXXX',
         db: 'my_database',
     },
+    vendor: {
+        github_access_token: 'xxxxxxxxxxxxxxxxxxxxxxxx'
+    },
 });
