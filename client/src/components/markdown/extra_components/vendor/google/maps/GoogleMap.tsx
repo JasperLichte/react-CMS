@@ -11,7 +11,7 @@ const GoogleMap: React.FC<any> = ({
     lng,
 }) => {
     height = parseInt(height);
-    zoom = parseInt(zoom) || 8;
+    zoom = parseInt(zoom) || 10;
     lat = parseFloat(lat) || 53.551086;
     lng = parseFloat(lng) || 9.993692;
 

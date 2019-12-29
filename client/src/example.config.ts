@@ -1,3 +1,5 @@
 export default Object.freeze({
-    SERVER_BASE_PATH: 'https://xxxxxx.xxx/xxx:xxx'
+    PRODUCTION: false,
+    PROD_SERVER_BASE_PATH: 'https://xxxxxx.xxx/xxx:xxx',
+    DEV_SERVER_BASE_PATH: 'https://xxxxxx.xxx/xxx:xxx',
 });

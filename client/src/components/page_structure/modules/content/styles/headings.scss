@@ -6,60 +6,38 @@ h5,
 h6 {
     @import url(https://fonts.googleapis.com/css?family=Baskervville&display=swap);
     font-family: 'Baskervville', serif;
-    font-weight: 500;
+    font-weight: 400;
     color: #222;
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-style: italic;
 
     @media screen and (max-width: 700px) {
         text-align: left;
     }
-
-    &::before {
-        color: var(--accent-color);
-        padding-right: 8px;
-    }
 }
 
 h1 {
-    font-size: 2.75rem;
-    &::before {
-        content: '#';
-    }
+    font-size: 2.8rem;
 }
 
 h2 {
-    font-size: 2.25rem;
-    &::before {
-        content: '##';
-    }
+    font-size: 2.5rem;
 }
 
 h3 {
-    font-size: 1.5rem;
-    &::before {
-        content: '###';
-    }
+    font-size: 2rem;
 }
 
 h4 {
-    font-size: 1.3rem;
-    &::before {
-        content: '####';
-    }
+    font-size: 1.5rem;
 }
 
 h5 {
-    font-size: 1.15rem;
-    &::before {
-        content: '#####';
-    }
+    font-size: 1.3rem;
 }
 
 h6 {
-    font-size: 1rem;
-    &::before {
-        content: '######';
-    }
+    font-size: 1.2rem;
 }
