@@ -35,7 +35,7 @@ const GithubUser: React.FC<any> = ({children}) => {
                         <FontAwesomeIcon icon={faEnvelope} />
                         {user.getEmail()}
                     </a>}
-                    {user.getBlog() && <a className="blog" href={user.getBlog()}>
+                    {user.getBlog() && <a className="blog" href={`http://${user.getBlog()}`}>
                         <FontAwesomeIcon icon={faLink} />
                         {user.getBlog()}
                     </a>}

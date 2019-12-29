@@ -6,7 +6,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "deploy": "node ./lib/deploy.js"
+    "deploy": "node ./util/deploy.js"
   },
   "repository": {
     "type": "git",

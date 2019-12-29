@@ -5,24 +5,13 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "module": "commonjs",
+    "module": "UMD",
     "outDir": "build",
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es6",
+    "target": "ES3",
     "moduleResolution": "node",
-    "paths": {
-      "@daos": [
-        "src/daos"
-      ],
-      "@entities": [
-        "src/entities"
-      ],
-      "@shared": [
-        "src/shared"
-      ]
-    },
     "types": [
       "node"
     ],
