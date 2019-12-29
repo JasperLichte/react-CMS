@@ -6,6 +6,7 @@ export default Object.freeze({
         db: 'my_database',
     },
     vendor: {
-        github_access_token: 'xxxxxxxxxxxxxxxxxxxxxxxx'
+        github_access_token: 'xxxxxxxxxxxxxxxxxxxxxxxx',
+        google_maps_api_token: 'xxxxxxxxxxxxxxxxxxxxxxxx',
     },
 });

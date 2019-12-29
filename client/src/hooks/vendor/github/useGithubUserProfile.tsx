@@ -10,26 +10,27 @@ const useGithubUserProfile = (userName: string): [boolean, GithubUserProfile|nul
         if (!userName) {
             setUser(null);
             setIsLoading(false);
+            return;
         }
 
         fetch(Config.serverBasePath() + `/vendor/github/user-profile/${userName}`)
-            .then((r) => {
-                if (!r.ok) {
-                    throw new Error();
-                }
+        .then((r) => {
+            if (!r.ok) {
+                throw new Error();
+            }
 
-                return r.json();
-            })
-            .then((p) => {
-                if (p.id) {
-                    setUser((new GithubUserProfile()).deserialize(p));
-                }
-                setIsLoading(false);
-            })
-            .catch(_ => {
-                setUser(null);
-                setIsLoading(false);
-            });
+            return r.json();
+        })
+        .then((p) => {
+            if (p.id) {
+                setUser((new GithubUserProfile()).deserialize(p));
+            }
+            setIsLoading(false);
+        })
+        .catch(_ => {
+            setUser(null);
+            setIsLoading(false);
+        });
     }, [userName]);
 
     return [isLoading, user];

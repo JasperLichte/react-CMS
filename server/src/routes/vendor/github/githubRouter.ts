@@ -1,17 +1,17 @@
 import express, { Request, Response } from 'express';
 import fetch from 'node-fetch';
-import credentials from 'src/config/credentials';
+import credentials from '../../../config/credentials';
 
 const githubRouter = express.Router();
 
 githubRouter.get('/user-profile/:user_name', async (req: Request, res: Response) => {
     const userName = req.params.user_name;
     if (!userName) {
-        return res.status(404).send();
+        return res.send();
     }
 
     if (!credentials.vendor.github_access_token) {
-        return res.status(500).send();
+        return res.send();
     }
 
     const apiResponse = await fetch(`https://api.github.com/users/${userName}`, {
@@ -21,7 +21,7 @@ githubRouter.get('/user-profile/:user_name', async (req: Request, res: Response)
     });
 
     if (!apiResponse.ok) {
-        return res.status(500).send();
+        return res.send();
     }
 
     res.send(await apiResponse.json());
