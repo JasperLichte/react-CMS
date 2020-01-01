@@ -10,6 +10,7 @@ blogRouter.get('/all-posts', async (req: Request, res: Response) => {
     const dbRes = (await db.query(`
         SELECT id, title, content, creation_date AS creationDate
         FROM blog_posts
+        ORDER BY creation_date DESC
     `));
 
     let posts: BlogPost[] = [];
@@ -57,7 +58,25 @@ blogRouter.post('/:id/edit', async (req: Request, res: Response) => {
     `);
 
     res.send({success: !!result.changedRows});
+});
 
+blogRouter.post('/new', async (req: Request, res: Response) => {
+    // @ts-ignore
+    const user: User|null = req.user;
+    const {title, content} = req.body;
+
+    if (user === null || !user.getIsAdmin() || !title || !content) {
+        return res.send({success: false});
+    }
+
+    const db = Connection.getInstance();
+    const result = await db.query(`
+        INSERT INTO blog_posts
+        (title, content, creation_date)
+        VALUES(${db.escape(title)}, ${db.escape(content)}, NOW())
+    `);
+
+    res.send({success: !!result.insertId, postId: result.insertId});
 });
 
 export default blogRouter;
