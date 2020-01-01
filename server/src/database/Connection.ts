@@ -52,6 +52,5 @@ export default class Connection {
         })
 
     public escape = (value: any, stringify: boolean = false) => this.db.escape(value, stringify);
-    public quoatate = (value: any) => this.escape(value, true);
 
 }

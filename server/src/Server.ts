@@ -1,22 +1,42 @@
 import express, { Request, Response } from 'express';
 import router from './routes/routes';
 import Connection from './database/Connection';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import passport from 'passport';
+import AuthHelper from './routes/auth/AuthHelper';
+import cookieSession from 'cookie-session';
+import credentials from './config/credentials';
+import config from './config/config';
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+AuthHelper.initPassport(passport);
+
+app.use(cors({credentials: true, origin: config.client_url}));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(cookieSession({
+  name: 'session',
+  keys: [credentials.session_key],
+  maxAge: 24 * 60 * 60 * 1000,
+  secure: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', router);
+
 app.use((_, __, next) => {
   Connection.getInstance().end();
   next();
 });
+
 app.get('*', (req: Request, res: Response) => {
     res.status(404).send('404');
 });
 
-// Export express instance
 export default app;

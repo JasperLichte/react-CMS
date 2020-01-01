@@ -9,4 +9,5 @@ export default Object.freeze({
         github_access_token: 'xxxxxxxxxxxxxxxxxxxxxxxx',
         google_maps_api_token: 'xxxxxxxxxxxxxxxxxxxxxxxx',
     },
+    session_key: 'xxxxxxxxxxxxxxxxxxxxx',
 });

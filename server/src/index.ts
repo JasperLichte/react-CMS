@@ -1,6 +1,7 @@
 import app from './Server';
+import config from './config/config';
 
-const port = 5000;
+const port = config.port;
 app.listen(port, () => {
     console.info('Express server started on port: ' + port);
 });

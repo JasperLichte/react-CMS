@@ -5,12 +5,12 @@
     transition: transform .5s ease;
     left: 0;
     z-index: 1;
-
     padding: 1rem;
     background-color: #fff;
     border-right: 1px solid #444;
     box-shadow: 0 0 5px rgba(20, 20, 20, .2);
-    min-width: 300px;
+    min-width: 400px;
+    color: #222;
 
     &.open {
         transform: translateX(0);
@@ -38,6 +38,7 @@
         opacity: 1;
         transition: opacity .6s ease;
         float: right;
+        clear: both;
 
         &:disabled {
             opacity: 0;
@@ -54,6 +55,36 @@
             }
             &:nth-of-type(2) {
                 transform: rotate(-45deg) translate(2px, -2px);
+            }
+        }
+    }
+
+    .links {
+        margin-top: 40px;
+        font-size: 1.4rem;
+        text-align: left;
+
+        a {
+            display: block;
+            position: relative;
+            text-decoration: none;
+            padding: .5rem .5rem 0 .5rem;
+            border-bottom: 1px solid #444;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: #ccc;
+                z-index: -1;
+                transition: width .4s ease;
+            }
+
+            &:hover::before {
+                width: 100%;
             }
         }
     }

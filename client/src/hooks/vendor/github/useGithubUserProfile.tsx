@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import GithubUserProfile from '../../../models/vendor/github/GithubUserProfile';
-import Config from '../../../models/Config';
+import Api from '../../../api/Api';
 
 const useGithubUserProfile = (userName: string): [boolean, GithubUserProfile|null] => {
     const [user, setUser] = useState<GithubUserProfile|null>(null);
@@ -13,12 +13,10 @@ const useGithubUserProfile = (userName: string): [boolean, GithubUserProfile|nul
             return;
         }
 
-        fetch(Config.serverBasePath() + `/vendor/github/user-profile/${userName}`)
-        .then((r) => {
+        Api.get(`vendor/github/user-profile/${userName}`).then((r) => {
             if (!r.ok) {
                 throw new Error();
             }
-
             return r.json();
         })
         .then((p) => {

@@ -1,11 +1,12 @@
 import express, { Request, Response } from 'express';
 import BlogPost from '../../models/blog/BlogPost';
 import Connection from '../../database/Connection';
+import User from 'src/models/user/User';
 
 const blogRouter = express.Router();
-const db = Connection.getInstance();
 
 blogRouter.get('/all-posts', async (req: Request, res: Response) => {
+    const db = Connection.getInstance();
     const dbRes = (await db.query(`
         SELECT id, title, content, creation_date AS creationDate
         FROM blog_posts
@@ -22,6 +23,7 @@ blogRouter.get('/all-posts', async (req: Request, res: Response) => {
 });
 
 blogRouter.get('/:id', async (req: Request, res: Response) => {
+    const db = Connection.getInstance();
     const post = (new BlogPost()).deserialize(await db.query(`
         SELECT id, title, content, creation_date AS creationDate
         FROM blog_posts
@@ -34,6 +36,28 @@ blogRouter.get('/:id', async (req: Request, res: Response) => {
     }
 
     res.send(post);
+});
+
+blogRouter.post('/:id/edit', async (req: Request, res: Response) => {
+    // @ts-ignore
+    const user: User|null = req.user;
+    const postId = parseInt(req.params.id);
+    const {title, content} = req.body;
+
+    if (user === null || !user.getIsAdmin() || !postId || !title || !content) {
+        return res.send({success: false});
+    }
+
+    const db = Connection.getInstance();
+    const result = await db.query(`
+        UPDATE blog_posts
+        SET title = ${db.escape(title)},
+            content = ${db.escape(content)}
+        WHERE id = ${db.escape(req.params.id)}
+    `);
+
+    res.send({success: !!result.changedRows});
+
 });
 
 export default blogRouter;

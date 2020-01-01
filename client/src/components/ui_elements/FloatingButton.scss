@@ -1,0 +1,31 @@
+.floating-button {
+    position: fixed;
+    bottom: 72px;
+    right: 32px;
+
+    min-height: 96px;
+    min-width: 96px;
+
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+    background: cornflowerblue;
+    color: #eee;
+    font-size: 1.4rem;
+    padding: .5rem;
+    opacity: .8;
+    transition: opacity .2s ease;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    @media screen and (max-width: 500px) {
+        bottom: 12px;
+        right: 12px;
+
+        min-height: 72px;
+        min-width: 72px;
+    }
+}

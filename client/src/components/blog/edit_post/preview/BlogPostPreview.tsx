@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import './NewBlogPostPreview.scss'
+import './BlogPostPreview.scss'
 import useMeasure from '../../../../hooks/dom/useMeasure';
 import MarkDownToJsx from '../../../markdown/MarkDownToJsx';
 

@@ -6,7 +6,7 @@ import Err404 from '../../placeholder/errors/404/Err404';
 import LoadingSpinner from '../../placeholder/LoadingSpinner';
 import MarkDownToJsx from '../../markdown/MarkDownToJsx';
 
-const BlogPost = () => {
+const BlogPostPage = () => {
   const { id } = useParams();
   const [ loading, post ] = useBlogPost(parseInt(id || ''));
 
@@ -29,4 +29,4 @@ const BlogPost = () => {
   );
 }
 
-export default BlogPost;
+export default BlogPostPage;

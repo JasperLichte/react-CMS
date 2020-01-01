@@ -6,29 +6,44 @@
     & .content-wrapper {
         max-width: 700px;
         margin: 0 auto;
-    }
-
-    .menu-open-btn {
-        height: 22px;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border: none;
-        outline: 0 none;
-        background: transparent;
-        cursor: pointer;
-        opacity: 1;
-        transition: opacity .6s ease;
+        align-items: center;
 
-        &:disabled {
-            opacity: 0;
+        .menu-open-btn {
+            height: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: none;
+            outline: 0 none;
+            background: transparent;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity .6s ease;
+            margin-right: 1.5rem;
+    
+            &:disabled {
+                opacity: 0;
+            }
+    
+            span {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: #222;
+            }
         }
 
-        span {
-            display: block;
-            width: 30px;
-            height: 3px;
-            background-color: #222;
+        h1 {
+            @import url(https://fonts.googleapis.com/css?family=Rock+Salt&display=swap);
+            font-family: 'Rock Salt', cursive;
+            font-weight: 100;
+            font-size: 1.7rem;
+            margin: -1.25rem 0;
+
+            a {
+                text-decoration: none;
+            }
         }
     }
 }
