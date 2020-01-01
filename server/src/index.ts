@@ -1,7 +1,7 @@
 import app from './Server';
-import config from './config/config';
+import env from './config/env';
 
-const port = config.port;
+const port = env.port;
 app.listen(port, () => {
     console.info('Express server started on port: ' + port);
 });
