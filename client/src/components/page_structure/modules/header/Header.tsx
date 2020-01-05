@@ -4,8 +4,15 @@ import './Header.scss';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { meSelector } from '../../../../selectors/selectors';
+import { Options } from '../../PageStructure';
+import PageType from '../../../pages/PageType';
 
-const Header = () => {
+interface Props {
+    options?: Options,
+    pageType: PageType,
+}
+
+const Header = ({options, pageType}: Props) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const me = useSelector(meSelector);
 
@@ -18,9 +25,13 @@ const Header = () => {
                     onClick={() => setMenuOpen(!menuOpen)}
                 ><span/><span/><span/>
                 </button>
-                <h1><Link to="/">{me?.getUser()?.getName()}</Link></h1>
+                {!options?.withoutHeading && <h1><Link to="/">{me?.getUser()?.getName()}</Link></h1>}
             </div>
-            <SideMenu isOpen={menuOpen} close={() => setMenuOpen(false)} />
+            <SideMenu
+                isOpen={menuOpen}
+                close={() => setMenuOpen(false)}
+                pageType={pageType}
+            />
         </header>
     )
 }

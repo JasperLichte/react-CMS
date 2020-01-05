@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
-import Me from 'src/models/config/Me';
-import me from 'src/config/about/me';
+import Me from '../../models/config/Me';
+import me from '../../config/about/me';
 
 const configRouter = express.Router();
 

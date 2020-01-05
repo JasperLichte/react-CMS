@@ -1,6 +1,8 @@
 import React from 'react'
 import './BlogPostInputs.scss'
 import FloatingButton from '../../../ui_elements/FloatingButton'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSave } from '@fortawesome/free-solid-svg-icons'
 
 interface Props {
     setTitle: React.Dispatch<React.SetStateAction<string>>,
@@ -29,9 +31,9 @@ const NewBlogPostInputs = ({setTitle, titleValue, setContent, contentValue, onSa
                 value={contentValue}
             ></textarea>
         </div>
-        <FloatingButton
-            onClick={onSave}
-        >Save</FloatingButton>
+        <FloatingButton onClick={onSave}>
+            <FontAwesomeIcon icon={faSave} />
+        </FloatingButton>
     </>)
 }
 

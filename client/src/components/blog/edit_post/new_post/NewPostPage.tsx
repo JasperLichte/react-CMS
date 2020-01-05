@@ -4,6 +4,7 @@ import './NewPostPage.scss'
 import useIsAdmin from '../../../../hooks/auth/useIsAdmin'
 import { Redirect } from 'react-router-dom'
 import NewPostPageContent from './NewPostPageContent'
+import PageType from '../../../pages/PageType'
 
 const NewPostPage: React.FC = () => {
     const isAllowed = useIsAdmin();
@@ -13,7 +14,9 @@ const NewPostPage: React.FC = () => {
     }
 
     return (
-        <PageStructure>
+        <PageStructure
+            pageType={PageType.NewBlogPost}
+        >
             <NewPostPageContent />
         </PageStructure>
     )

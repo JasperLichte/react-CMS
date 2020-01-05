@@ -60,7 +60,7 @@
     }
 
     .links {
-        margin-top: 40px;
+        margin-top: 25px;
         font-size: 1.4rem;
         text-align: left;
 
@@ -69,7 +69,12 @@
             position: relative;
             text-decoration: none;
             padding: .5rem .5rem 0 .5rem;
+            margin-top: .75rem;
             border-bottom: 1px solid #444;
+
+            &[data-current=true] {
+                display: none;
+            }
 
             &::before {
                 content: '';

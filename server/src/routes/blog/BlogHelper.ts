@@ -1,5 +1,5 @@
-import BlogPost from 'src/models/blog/BlogPost';
-import Connection from 'src/database/Connection';
+import BlogPost from '../../models/blog/BlogPost';
+import Connection from '../../database/Connection';
 
 export default class BlogHelper {
 

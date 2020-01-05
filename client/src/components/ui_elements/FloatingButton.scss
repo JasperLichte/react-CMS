@@ -1,10 +1,10 @@
 .floating-button {
     position: fixed;
-    bottom: 72px;
+    bottom: 64px;
     right: 32px;
 
-    min-height: 96px;
-    min-width: 96px;
+    min-height: 72px;
+    min-width: 72px;
 
     border-radius: 50px;
     border: none;
@@ -21,11 +21,12 @@
         opacity: 1;
     }
 
+    > svg {
+        font-size: 2rem;
+    }
+
     @media screen and (max-width: 500px) {
         bottom: 12px;
         right: 12px;
-
-        min-height: 72px;
-        min-width: 72px;
     }
 }

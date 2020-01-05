@@ -3,10 +3,21 @@ import Header from './modules/header/Header';
 import Footer from './modules/footer/Footer';
 import Content from './modules/content/Content';
 import './PageStructure.scss';
+import PageType from '../pages/PageType';
 
-const PageStructure: React.FC = ({children}) => (
+export interface Options {
+    withoutHeading?: boolean
+}
+
+interface Props {
+    children: React.ReactNode,
+    options?: Options,
+    pageType: PageType,
+}
+
+const PageStructure = ({children, options, pageType}: Props) => (
     <div className="page-structure">
-        <Header></Header>
+        <Header options={options} pageType={pageType}></Header>
         <Content>
             {children}
         </Content>

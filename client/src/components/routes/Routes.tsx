@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import BlogLandingPage from '../blog/landing_page/BlogLandingPage';
 import BlogRouter from './BlogRouter';
 import AuthRouter from './AuthRouter';
 import Err404Page from '../placeholder/errors/404/Err404Page';
@@ -13,6 +12,8 @@ import ActionType from '../../actions/ActionType';
 import LoadingSpinner from '../placeholder/LoadingSpinner';
 import useFetchAuthenticatedUser from '../../hooks/auth/useFetchAuthenticatedUser';
 import useFetchMe from '../../hooks/config/useFetchMe';
+import LandingPage from '../landing_page/LandingPage';
+import AboutMePage from '../about/AboutMePage';
 
 const Routes: React.FC = () => {
   const [ userIsLoading, user ] = useFetchAuthenticatedUser();
@@ -42,6 +43,9 @@ const Routes: React.FC = () => {
             ? <LoadingSpinner />
             : (<Router>
                 <Switch>
+                  <Route path="/about">
+                    <AboutMePage />
+                  </Route>
                   <Route path="/blog">
                     <BlogRouter />
                   </Route>
@@ -49,7 +53,7 @@ const Routes: React.FC = () => {
                     <AuthRouter />
                   </Route>
                   <Route exact path="/">
-                    <BlogLandingPage />
+                    <LandingPage />
                   </Route>
                   <Route path="*">
                     <Err404Page />

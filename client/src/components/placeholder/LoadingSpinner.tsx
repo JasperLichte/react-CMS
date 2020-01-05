@@ -1,8 +1,9 @@
 import React from 'react';
+import './LoadingSpinner.scss';
 
 const LoadingSpinner: React.FC = () => (
-<div>
-    <p>loading...</p>
+<div className="loading-spinner">
+    <span></span>
 </div>);
 
 export default LoadingSpinner;

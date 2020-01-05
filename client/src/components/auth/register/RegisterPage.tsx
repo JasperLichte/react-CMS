@@ -3,9 +3,12 @@ import PageStructure from '../../page_structure/PageStructure'
 import AuthFormWrapper from '../AuthFormWrapper'
 import RegisterForm from './form/RegisterForm'
 import { Link } from 'react-router-dom'
+import PageType from '../../pages/PageType'
 
 const RegisterPage = () => (
-    <PageStructure>
+    <PageStructure
+        pageType={PageType.Register}
+    >
         <AuthFormWrapper>
             <h2>Register</h2>
             <RegisterForm />

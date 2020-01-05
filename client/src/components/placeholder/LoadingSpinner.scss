@@ -1,0 +1,28 @@
+#root > .loading-spinner {
+    height: 100vh;
+}
+
+.loading-spinner {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        border: 7px solid #ccc;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border-bottom-color: #444;
+        border-top-color: #444;
+        animation: spin 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            } to {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}

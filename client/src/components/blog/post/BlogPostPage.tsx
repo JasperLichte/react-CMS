@@ -7,6 +7,7 @@ import LoadingSpinner from '../../placeholder/LoadingSpinner';
 import MarkDownToJsx from '../../markdown/MarkDownToJsx';
 import useIsAdmin from '../../../hooks/auth/useIsAdmin';
 import FloatingButton from '../../ui_elements/FloatingButton';
+import PageType from '../../pages/PageType';
 
 const BlogPostPage = () => {
   const isAdmin = useIsAdmin();
@@ -21,7 +22,9 @@ const BlogPostPage = () => {
   }, [post]);
 
   return (
-    <PageStructure>
+    <PageStructure
+      pageType={PageType.BlogPost}
+    >
       {
         loading
           ? <LoadingSpinner />

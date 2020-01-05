@@ -4,6 +4,7 @@ import './EditPostPage.scss'
 import { Redirect } from 'react-router-dom'
 import useIsAdmin from '../../../../hooks/auth/useIsAdmin'
 import EditPostPageContent from './EditPostPageContent'
+import PageType from '../../../pages/PageType'
 
 const EditPostPage: React.FC = () => {
     const isAllowed = useIsAdmin();
@@ -13,7 +14,9 @@ const EditPostPage: React.FC = () => {
     }
 
     return (
-        <PageStructure>
+        <PageStructure
+            pageType={PageType.EditBlogPost}
+        >
             <EditPostPageContent />
         </PageStructure>
     )
