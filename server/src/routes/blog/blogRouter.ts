@@ -1,39 +1,19 @@
 import express, { Request, Response } from 'express';
-import BlogPost from '../../models/blog/BlogPost';
 import Connection from '../../database/Connection';
-import User from 'src/models/user/User';
+import User from '../../models/user/User';
+import BlogHelper from './BlogHelper';
 
 const blogRouter = express.Router();
 
 blogRouter.get('/all-posts', async (req: Request, res: Response) => {
-    const db = Connection.getInstance();
-    const dbRes = (await db.query(`
-        SELECT id, title, content, creation_date AS creationDate
-        FROM blog_posts
-        ORDER BY creation_date DESC
-    `));
-
-    let posts: BlogPost[] = [];
-    if (Array.isArray(dbRes)) {
-        posts  = dbRes.map((p: {}) => (new BlogPost()).deserialize(p));
-    } else {
-        posts = [(new BlogPost()).deserialize(dbRes)];
-    }
-
-    res.send(posts);
+    res.send(await BlogHelper.allPosts());
 });
 
 blogRouter.get('/:id', async (req: Request, res: Response) => {
-    const db = Connection.getInstance();
-    const post = (new BlogPost()).deserialize(await db.query(`
-        SELECT id, title, content, creation_date AS creationDate
-        FROM blog_posts
-        WHERE id = ${db.escape(req.params.id)}
-    `));
+    const post = await BlogHelper.postById(parseInt(req.params.id));
 
-    if (post.isEmpty()) {
-        res.status(404).send(null);
-        return;
+    if (! post || post.isEmpty()) {
+        return res.status(404).send(null);
     }
 
     res.send(post);

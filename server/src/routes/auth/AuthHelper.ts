@@ -1,8 +1,8 @@
-import User from 'src/models/user/User';
-import Connection from 'src/database/Connection';
+import User from '../../models/user/User';
+import Connection from '../../database/Connection';
 import { PassportStatic } from 'passport';
 import {Strategy} from 'passport-local';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export default class AuthHelper {
 
@@ -63,7 +63,7 @@ export default class AuthHelper {
                 return done(null, null);
             }
 
-            if (await bcrypt.compare(password, user.getPassword())) {
+            if (bcrypt.compareSync(password, user.getPassword())) {
                 return done(null, user);
             }
             return done(null, null);

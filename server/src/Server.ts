@@ -25,7 +25,7 @@ app.use(cookieSession({
   name: 'session',
   keys: [credentials.session_key],
   maxAge: 24 * 60 * 60 * 1000,
-  secure: true
+  secure: false
 }));
 
 app.use(passport.initialize());
@@ -39,7 +39,7 @@ app.use((_, __, next) => {
 });
 
 app.get('*', (req: Request, res: Response) => {
-    res.status(404).send('404');
+  res.status(404).send('404');
 });
 
 export default app;

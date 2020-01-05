@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
-import bcrypt from 'bcrypt';
 import AuthHelper from './AuthHelper';
-import User from 'src/models/user/User';
+import User from '../../models/user/User';
 import passport from 'passport';
+import bcrypt from 'bcryptjs';
 
 const authRouter = express.Router();
 
@@ -19,7 +19,7 @@ authRouter.post('/register', async (req: Request, res: Response) => {
     if (user === null) {
         await AuthHelper.insertNewUser((new User()).deserialize({
             email: req.body.email,
-            password: await bcrypt.hash(req.body.password, 10),
+            password: bcrypt.hashSync(req.body.password, 10),
         }));
     }
 
