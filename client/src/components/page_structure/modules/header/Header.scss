@@ -3,6 +3,19 @@
     padding: 1rem;
     border-bottom: 1px solid currentColor;
 
+    &[data-theme="dark"] {
+        color: #fff;
+        background-color: #444;
+
+        & .content-wrapper {
+            .menu-open-btn {
+                span {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+
     & .content-wrapper {
         max-width: 700px;
         margin: 0 auto;

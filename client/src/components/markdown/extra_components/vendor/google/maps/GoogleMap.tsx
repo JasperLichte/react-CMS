@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react'
 import useGoogleMapsApiKey from '../../../../../../hooks/vendor/google/useGoogleMapsApiKey'
 import googleMapsOptions from './googleMapsOption'
 import './GoogleMap.scss'
+import LoadingSpinner from '../../../../../placeholder/LoadingSpinner'
 
 const GoogleMap: React.FC<any> = ({
     height,
@@ -19,16 +20,18 @@ const GoogleMap: React.FC<any> = ({
 
     return (
         <div
-            className={`google-map ${!apiKey ? 'loading' : ''}`}
+            className='google-map'
             style={{height: `${height}px` || undefined}}
         >
-            {apiKey && <GoogleMapReact
-                bootstrapURLKeys={{key: apiKey}}
-                defaultCenter={{lat: 53.551086, lng: 9.993692}}
-                center={{lat, lng}}
-                zoom={zoom}
-                options={googleMapsOptions}
-            />}
+            {apiKey
+                ? <GoogleMapReact
+                    bootstrapURLKeys={{key: apiKey}}
+                    defaultCenter={{lat: 53.551086, lng: 9.993692}}
+                    center={{lat, lng}}
+                    zoom={zoom}
+                    options={googleMapsOptions}
+                />
+                : <LoadingSpinner />}
         </div>
     );  
 }

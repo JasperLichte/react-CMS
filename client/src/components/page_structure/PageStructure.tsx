@@ -4,24 +4,33 @@ import Footer from './modules/footer/Footer';
 import Content from './modules/content/Content';
 import './PageStructure.scss';
 import PageType from '../pages/PageType';
+import Theme, { defaultTheme } from './Theme';
 
 export interface Options {
-    withoutHeading?: boolean
+    withoutHeading?: boolean,
+    theme?: Theme,
 }
 
 interface Props {
     children: React.ReactNode,
     options?: Options,
     pageType: PageType,
+    className?: string,
 }
 
-const PageStructure = ({children, options, pageType}: Props) => (
-    <div className="page-structure">
-        <Header options={options} pageType={pageType}></Header>
-        <Content>
-            {children}
-        </Content>
-        <Footer></Footer>
-    </div>);
+const PageStructure = ({children, options, pageType, className}: Props) => {
+    if (options) {
+        options.theme = options.theme || defaultTheme;
+    }
+
+    return (
+        <div className="page-structure">
+            <Header options={options} pageType={pageType}></Header>
+            <Content className={className}>
+                {children}
+            </Content>
+            <Footer options={options}></Footer>
+        </div>);
+};
 
 export default PageStructure;

@@ -1,9 +1,14 @@
 import React from 'react'
 import './Footer.scss';
+import { Options } from '../../PageStructure';
 
-const Footer = () => {
+interface Props {
+    options?: Options,
+}
+
+const Footer = ({options}: Props) => {
     return (
-        <footer className="footer">
+        <footer className="footer" data-theme={options?.theme || ''}>
             <div className="content-wrapper">
                 <p>
                     Made possible with <strong>

@@ -1,9 +1,14 @@
 import React from 'react'
 import './Content.scss';
 
-const Content: React.FC = ({children}) => {
+interface Props {
+    className?: string,
+    children: React.ReactNode,
+}
+
+const Content = ({children, className}: Props) => {
     return (
-        <div className="content">
+        <div className={`content ${className || ''}`}>
             {children}
         </div>
     )

@@ -17,7 +17,7 @@ const Header = ({options, pageType}: Props) => {
     const me = useSelector(meSelector);
 
     return (
-        <header className="header">
+        <header className="header" data-theme={options?.theme || ''}>
             <div className="content-wrapper">
                 <button
                     className="menu-open-btn"

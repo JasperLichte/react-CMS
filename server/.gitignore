@@ -4,3 +4,4 @@ build
 src/config/credentials.ts
 src/config/env.ts
 src/config/about/me.ts
+public/about-me.md
