@@ -12,4 +12,15 @@ aboutRouter.get('/me', async (req: Request, res: Response) => {
     }
 });
 
+aboutRouter.get('/me/social-media', async (req: Request, res: Response) => {
+    try {
+        const content = fs.readFileSync(`${process.cwd()}/public/social-media.json`).toString();
+        const jsonObj = JSON.parse(content);
+
+        res.send({'social-media': jsonObj});
+    } catch(e) {
+        res.send({error: e.message})
+    }
+});
+
 export default aboutRouter;

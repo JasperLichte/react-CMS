@@ -4,6 +4,7 @@ import GithubUser from './extra_components/vendor/github/GithubUser'
 import GoogleMap from './extra_components/vendor/google/maps/GoogleMap'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-light.css'
+import MySocialMedia from './extra_components/me/MySocialMedia'
 
 interface Props {
     md: string;
@@ -35,6 +36,7 @@ const MarkDownToJsx = ({md, onHeadingsChange}: Props) => {
                     overrides: {
                         'github-user': GithubUser,
                         'map': GoogleMap,
+                        'my-social-media': MySocialMedia,
                     }
                 }}
             >{md}</Markdown>
@@ -42,3 +44,5 @@ const MarkDownToJsx = ({md, onHeadingsChange}: Props) => {
 }
 
 export default MarkDownToJsx
+
+// <my-social-media></my-social-media>

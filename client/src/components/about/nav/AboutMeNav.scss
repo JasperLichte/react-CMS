@@ -3,6 +3,7 @@
     min-width: 240px;
     background-color: #444;
     padding: 1rem;
+    color: #eee;
 
     @media screen and (max-width: 760px) {
         display: none;
@@ -23,7 +24,6 @@
         li {
             padding: 8px 0;
             font-size: 1.05rem;
-            color: #eee;
 
             &:hover {
                 background-color: rgba(20, 20, 20, .1);
