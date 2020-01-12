@@ -1,9 +1,9 @@
 .about-me-nav {
     max-width: 500px;
     min-width: 240px;
-    background-color: #444;
-    padding: 1rem;
-    color: #eee;
+    padding: 15px 1rem;
+    color: #444;
+    position: relative;
 
     @media screen and (max-width: 760px) {
         display: none;
@@ -18,8 +18,8 @@
     }
 
     & > ul {
-        top: 0;
         list-style: none;
+        position: fixed;
 
         li {
             padding: 8px 0;
@@ -29,17 +29,27 @@
                 background-color: rgba(20, 20, 20, .1);
             }
 
+            &[data-active="1"] {
+                //color: #000;
+                opacity: 1;
+            }
+
             a {
                 text-decoration: none;
                 display: block;
 
                 &::before {
                     content: '- ';
+                    opacity: .8;
                 }
             }
 
             &[data-level="1"] {
                 padding-left: 0;
+
+                a::before {
+                    content: '* ';
+                }
             }
             &[data-level="2"] {
                 padding-left: 8px;
@@ -57,5 +67,15 @@
                 padding-left: 40px;
             }
         }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1px;
+        top: 15px;
+        height: calc(100% - 30px);
+        background-color: #222;
     }
 }

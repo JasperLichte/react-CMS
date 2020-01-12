@@ -11,6 +11,8 @@ import LoadingSpinner from '../placeholder/LoadingSpinner';
 const AboutMePage = () => {
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(true);
+    const [headings, setHeadings] = useState<NodeListOf<HTMLElement>|[]>([]);
+    const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
 
     useEffect(() => {
         Api.get('about/me')
@@ -22,19 +24,25 @@ const AboutMePage = () => {
                 setLoading(false);
             });
     }, [setContent]);
-    const [headings, setHeadings] = useState<NodeListOf<HTMLElement>|[]>([]);
 
     return (
         <PageStructure
             pageType={PageType.About}
-            options={{withoutHeading: false, theme: Theme.bright}}
+            options={{withoutHeading: true, theme: Theme.dark}}
             className="about-me"
         >{
             loading
                 ? <LoadingSpinner />
                 : <>
-                    <AboutMeNav headings={headings} />
-                    <AboutMeContent content={content} onHeadingsChange={setHeadings} />
+                    <AboutMeNav
+                        headings={headings}
+                        activeHeadings={activeHeadings}
+                    />
+                    <AboutMeContent
+                        content={content}
+                        onHeadingsChange={setHeadings}
+                        onActiveHeadingsChange={setActiveHeadings}
+                    />
                 </>
         }
         </PageStructure>)

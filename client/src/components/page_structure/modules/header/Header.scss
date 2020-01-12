@@ -2,10 +2,15 @@
     color: #222;
     padding: 1rem;
     border-bottom: 1px solid currentColor;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 99;
 
     &[data-theme="dark"] {
         color: #fff;
-        background-color: #444;
+        background-color: #222;
 
         & .content-wrapper {
             .menu-open-btn {

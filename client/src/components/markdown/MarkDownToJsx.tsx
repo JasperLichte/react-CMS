@@ -9,25 +9,46 @@ import MySocialMedia from './extra_components/me/MySocialMedia'
 interface Props {
     md: string;
     onHeadingsChange?: (headings :(NodeListOf<HTMLElement>|[])) => any,
+    onActiveHeadingsChange?: (headings: string[]) => any,
 }
 
-const MarkDownToJsx = ({md, onHeadingsChange}: Props) => {
+const MarkDownToJsx = ({md, onHeadingsChange, onActiveHeadingsChange}: Props) => {
     const rootRef = useRef() as React.MutableRefObject<HTMLDivElement>;
     const [headings, setHeadings] = useState<NodeListOf<HTMLElement>|[]>([]);
+    const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
 
     useEffect(() => {
       rootRef?.current?.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightBlock(block);
       });
 
-      setHeadings(rootRef?.current?.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+      const updatedHeadings: NodeListOf<HTMLElement>|[] = rootRef?.current?.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      setHeadings(updatedHeadings);
+      updatedHeadings.forEach(h => {
+          if (h.innerText.includes(' [hidden]')) {
+            h.innerText = h.innerText.replace(' [hidden]', '');
+            h.id = h.id.replace('-hidden', '');
+            h.classList.add('hidden');
+          }
+      });
+
     }, [md, rootRef, setHeadings]);
 
     useEffect(() => {
         if (onHeadingsChange) {
             onHeadingsChange(headings);
         }
-    }, [headings, onHeadingsChange])
+        const headingsObserver = new IntersectionObserver((entries) => {
+            setActiveHeadings(entries.map(e => e.target.id));
+        });
+        headings.forEach((h: HTMLElement) => headingsObserver.observe(h));
+    }, [headings, onHeadingsChange]);
+
+    useEffect(() => {
+        if (onActiveHeadingsChange) {
+            onActiveHeadingsChange(activeHeadings);
+        }
+    }, [activeHeadings, onActiveHeadingsChange])
 
     return (
         <div className="markdown" ref={rootRef}>

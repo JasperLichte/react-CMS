@@ -3,16 +3,19 @@ import './AboutMeNav.scss'
 
 interface Props {
     headings: NodeListOf<HTMLElement>|[],
+    activeHeadings: string[],
 }
 
-const AboutMeNav = ({headings}: Props) => {
-    const levels = Array.from(headings).map(h => parseInt(h.tagName.replace('H', '')));
-
+const AboutMeNav = ({headings, activeHeadings}: Props) => {
     return (
         <div className="about-me-nav" data-item-count={headings.length}>
             <ul>
                 {Array.from(headings).map((h, i) => (
-                    <li key={i} data-level={levels[i]}>
+                    <li
+                        key={`${h.id}-${i}`}
+                        data-level={parseInt(h.tagName.replace('H', ''))}
+                        data-active={(activeHeadings.includes(h.id)) ? 1 : 0}
+                    >
                         <a href={`#${h.id}`}>{h.innerText}</a>
                     </li>
                 ))}
