@@ -31,6 +31,7 @@ const Header = ({options, pageType}: Props) => {
                 isOpen={menuOpen}
                 close={() => setMenuOpen(false)}
                 pageType={pageType}
+                theme={options?.theme}
             />
         </header>
     )

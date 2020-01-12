@@ -4,18 +4,20 @@ import { useSelector } from 'react-redux'
 import { userSelector } from '../../../../selectors/selectors';
 import { Link } from 'react-router-dom';
 import PageType from '../../../pages/PageType';
+import Theme from '../../Theme';
 
 interface Props {
     isOpen: boolean,
     close: VoidFunction,
     pageType: PageType,
+    theme?: Theme,
 }
 
-const SideMenu = ({isOpen, close, pageType}: Props) => {
+const SideMenu = ({isOpen, close, pageType, theme}: Props) => {
     const user = useSelector(userSelector);
 
     return (
-        <div className={`side-menu ${isOpen ? 'open' : 'closed'}`}>
+        <div className={`side-menu ${isOpen ? 'open' : 'closed'}`} data-theme={theme}>
             <button
                 onClick={close}
                 className="menu-close-btn"

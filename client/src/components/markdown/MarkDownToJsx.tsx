@@ -23,7 +23,6 @@ const MarkDownToJsx = ({md, onHeadingsChange, onActiveHeadingsChange}: Props) =>
       });
 
       const updatedHeadings: NodeListOf<HTMLElement>|[] = rootRef?.current?.querySelectorAll('h1, h2, h3, h4, h5, h6');
-      setHeadings(updatedHeadings);
       updatedHeadings.forEach(h => {
           if (h.innerText.includes(' [hidden]')) {
             h.innerText = h.innerText.replace(' [hidden]', '');
@@ -31,6 +30,7 @@ const MarkDownToJsx = ({md, onHeadingsChange, onActiveHeadingsChange}: Props) =>
             h.classList.add('hidden');
           }
       });
+      setHeadings(updatedHeadings);
 
     }, [md, rootRef, setHeadings]);
 
